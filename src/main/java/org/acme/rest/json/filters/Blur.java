@@ -6,11 +6,6 @@ import org.opencv.imgproc.Imgproc;
 public class Blur implements Filter {
 
     @Override
-    public String filterName() {
-        return "Blur";
-    }
-
-    @Override
     public Mat process(Mat src) {
         Mat dst = new Mat();
         Mat kernel = new Mat();

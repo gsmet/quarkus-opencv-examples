@@ -5,10 +5,6 @@ import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 
 public class GaussianBlur implements Filter {
-    @Override
-    public String filterName() {
-        return "GaussianBlur";
-    }
 
     @Override
     public Mat process(Mat src) {

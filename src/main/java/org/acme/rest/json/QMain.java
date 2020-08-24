@@ -5,7 +5,10 @@ import io.quarkus.runtime.annotations.QuarkusMain;
 import nu.pattern.OpenCV;
 import org.acme.rest.json.filters.*;
 import org.opencv.core.*;
+import org.opencv.dnn.Dnn;
 import org.opencv.imgcodecs.Imgcodecs;
+import org.opencv.imgproc.Imgproc;
+import org.opencv.objdetect.CascadeClassifier;
 
 @QuarkusMain
 public class QMain implements QuarkusApplication {
@@ -37,14 +40,36 @@ public class QMain implements QuarkusApplication {
 
 
     public static Mat transformImage(Mat imageMatrix){
-        return FilterConfig.runConfigs(imageMatrix);
+        Mat img_color = imageMatrix;
+        Mat img_gray = imageMatrix;
+        Mat img_blur = imageMatrix;
+        Mat img_edge = imageMatrix;
+
+        img_color = new PyrDown().process(imageMatrix);
+        img_color = new BilateralFilter().process(img_color);
+        img_color = new PyrUp().process(img_color);
+
+        img_gray = new RGB2Grey().process(imageMatrix);
+
+        img_blur = new MedianBlur().process(img_gray);
+        img_edge = new AdaptiveThreshold().process(img_blur);
+        img_edge = new Grey2RGB().process(img_edge);
+
+        img_edge = new BitwiseAnd().process(img_color, img_edge);
+
+        return new DetectFace().process(img_edge);
+
     }
 
     public static void createConfig(){
         FilterConfig.add(new PyrDown());
         FilterConfig.add(new BilateralFilter());
         FilterConfig.add(new PyrUp());
+        FilterConfig.add(new RGB2Grey());
         FilterConfig.add(new MedianBlur());
+        FilterConfig.add(new AdaptiveThreshold());
+        FilterConfig.add(new Grey2RGB());
+
     }
 
 
