@@ -1,6 +1,5 @@
-package org.acme.rest.json.filters;
+package org.acme.filters;
 
-import org.acme.rest.json.filters.Filter;
 import org.opencv.core.Mat;
 
 import java.util.ArrayList;

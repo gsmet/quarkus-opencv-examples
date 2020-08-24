@@ -1,7 +1,6 @@
-package org.acme.rest.json.filters;
+package org.acme.filters;
 
 import org.opencv.core.Mat;
-import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 
 public class PyrDown implements Filter{

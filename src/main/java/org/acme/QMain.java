@@ -1,14 +1,11 @@
-package org.acme.rest.json;
+package org.acme;
 
 import io.quarkus.runtime.QuarkusApplication;
 import io.quarkus.runtime.annotations.QuarkusMain;
 import nu.pattern.OpenCV;
-import org.acme.rest.json.filters.*;
+import org.acme.filters.*;
 import org.opencv.core.*;
-import org.opencv.dnn.Dnn;
 import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.imgproc.Imgproc;
-import org.opencv.objdetect.CascadeClassifier;
 
 @QuarkusMain
 public class QMain implements QuarkusApplication {

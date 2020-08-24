@@ -1,4 +1,4 @@
-package org.acme.rest.json.filters;
+package org.acme.filters;
 
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
