@@ -11,8 +11,8 @@ import org.opencv.imgcodecs.Imgcodecs;
 public class QMain implements QuarkusApplication {
 
 
-    final String testImage = "/home/sysh/Pictures/TestImg-300x300.jpg";
-    final String targetImage = "/home/sysh/Pictures/TestImg-301x301.jpg";
+    final String testImage = "TestImg-300x300.jpg";
+    final String targetImage = "TestImg-301x301.jpg";
 
 
     @Override

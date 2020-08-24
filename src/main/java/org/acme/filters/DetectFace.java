@@ -8,7 +8,7 @@ public class DetectFace implements Filter{
     @Override
     public Mat process(Mat src) {
         MatOfRect faces = new MatOfRect();
-        CascadeClassifier cc = new CascadeClassifier("/home/sysh/github/sshaaf/quarkus-opencv-cartoonizer/src/main/resources/haarcascade_frontalface_default.xml");
+        CascadeClassifier cc = new CascadeClassifier("haarcascade_frontalface_default.xml");
         cc.detectMultiScale(src,faces);
 
         System.out.println(String.format("Detected %s faces",
